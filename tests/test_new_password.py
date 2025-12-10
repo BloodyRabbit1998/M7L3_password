@@ -15,3 +15,10 @@ def test_password_characters():
 Тест, что длина пароля соответствует заданной
 Тест, что два сгенерированных подряд пароля различаются
 """
+
+def test_password_numbers():
+    """Тест, что при генерации используются только допустимые символы"""
+    valid_characters = string.digits
+    password = generate_password(100)  # Генерируем длинный пароль для более надежной проверки
+    for char in password:
+        assert char in valid_characters
